@@ -61,14 +61,21 @@ LTMP手动编译安装以及全自动化部署实践 - http://wsgzao.github.io/p
 2. 服务器B（从服务器/备份服务器）
 3. rsync默认TCP端口为873
 
+注意在没有安装古偶编译环境的机器上面需要先安装 gcc cmake编译环境
+For centos:
+yum install -y gcc cmake
+
+For debian:
+apt-get install -y gcc cmake
+
 ### 服务器B
 
 ``` bash
 #在服务器B上安装rsync
 cd /app/local
-wget  http://rsync.samba.org/ftp/rsync/src/rsync-3.1.1.tar.gz
-tar zxf rsync-3.1.1.tar.gz
-cd rsync-3.1.1
+wget  https://rsync.samba.org/ftp/rsync/src/rsync-3.1.2.tar.gz
+tar zxf rsync-3.1.2.tar.gz
+cd rsync-3.1.2
 ./configure
 make && make install
 
@@ -141,9 +148,9 @@ pkill rsync
 ``` bash
 #安装rsync
 cd /app/local
-wget  http://rsync.samba.org/ftp/rsync/src/rsync-3.1.1.tar.gz
-tar zxf rsync-3.1.1.tar.gz
-cd rsync-3.1.1
+wget  https://rsync.samba.org/ftp/rsync/src/rsync-3.1.2.tar.gz
+tar zxf rsync-3.1.2.tar.gz
+cd rsync-3.1.2
 ./configure
 make && make install
 
@@ -157,7 +164,7 @@ make && make install
 
 #安装sersync
 cd /app/local
-wget https://sersync.googlecode.com/files/sersync2.5.4_64bit_binary_stable_final.tar.gz
+wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/sersync/sersync2.5.4_64bit_binary_stable_final.tar.gz
 tar zxf sersync2.5.4_64bit_binary_stable_final.tar.gz
 mv /app/local/GNU-Linux-x86/ /app/local/sersync
 cd /app/local/sersync
